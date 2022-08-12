@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StandartPictureMovement : ObjectSelectable
 {
@@ -23,6 +24,9 @@ public class StandartPictureMovement : ObjectSelectable
     [SerializeField]
     [Range(-180, 180)]
     private float initialrotationOffset = 0;
+
+    [SerializeField]
+    private UnityEvent OnSelected;
 
     private Quaternion rotationFromGrubToUp;
 
@@ -69,6 +73,7 @@ public class StandartPictureMovement : ObjectSelectable
         isInDrug = true;
         previusMousePos = Input.mousePosition;
         globalOrders.RequestHighestOrder(this);
+        OnSelected?.Invoke();
     }
 
     public override void OnRelease()
@@ -99,7 +104,8 @@ public class StandartPictureMovement : ObjectSelectable
             transform.rotation = Quaternion.LookRotation(Vector3.forward, newUp);
 
             var globalOffset = (Vector2)transform.TransformVector(localGrubOffset);
-            transform.position = newMousePos - globalOffset;
+            var pos2d = newMousePos - globalOffset;
+            transform.position = new Vector3(pos2d.x, pos2d.y, transform.position.z);
             previusMousePos = newMousePos;
         }
     }
