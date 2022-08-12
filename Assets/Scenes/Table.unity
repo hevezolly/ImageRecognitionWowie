@@ -488,6 +488,8 @@ MonoBehaviour:
   input: {fileID: 11400000, guid: 51fc9edb04a69d345890320c2ccf895d, type: 2}
   renderer: {fileID: 1961914260}
   globalOrders: {fileID: 11400000, guid: 9a152cc3afc919f408c9ab656ff819aa, type: 2}
+  dimentionRadius: 2.79
+  friction: 0.5
   maxRotationWhileDrug: 30
   initialrotationOffset: 0
 --- !u!212 &1961914260
@@ -742,6 +744,8 @@ MonoBehaviour:
   input: {fileID: 11400000, guid: 51fc9edb04a69d345890320c2ccf895d, type: 2}
   renderer: {fileID: 2128535092}
   globalOrders: {fileID: 11400000, guid: 9a152cc3afc919f408c9ab656ff819aa, type: 2}
+  dimentionRadius: 2.79
+  friction: 0.5
   maxRotationWhileDrug: 30
   initialrotationOffset: 0
 --- !u!61 &2128535095

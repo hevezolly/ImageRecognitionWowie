@@ -10,6 +10,11 @@ public class StandartPictureMovement : ObjectSelectable
     private SpriteRenderer renderer;
     [SerializeField]
     private GlobalObjectsOrder globalOrders;
+    [SerializeField]
+    private float dimentionRadius;
+    [SerializeField]
+    [Range(0, 1)]
+    private float friction;
 
     [SerializeField]
     [Range(0, 360)]
@@ -28,6 +33,8 @@ public class StandartPictureMovement : ObjectSelectable
     private Vector2 centerLine;
 
     private float halvedRotation;
+
+    private float offcenterCoefficient;
 
     private void Awake()
     {
@@ -55,8 +62,10 @@ public class StandartPictureMovement : ObjectSelectable
     public override void OnSelect()
     {
         var globalPos = input.Position;
-        rotationFromGrubToUp = Quaternion.FromToRotation(globalPos - (Vector2)transform.position, transform.up);
-        localGrubOffset = transform.InverseTransformVector(globalPos - (Vector2)transform.position);
+        var dir = globalPos - (Vector2)transform.position;
+        offcenterCoefficient = Mathf.Clamp01(dir.magnitude / dimentionRadius) * friction;
+        rotationFromGrubToUp = Quaternion.FromToRotation(dir, transform.up);
+        localGrubOffset = transform.InverseTransformVector(dir);
         isInDrug = true;
         previusMousePos = Input.mousePosition;
         globalOrders.RequestHighestOrder(this);
@@ -74,7 +83,7 @@ public class StandartPictureMovement : ObjectSelectable
             var newMousePos = input.Position;
             var dirToDesiredPos = newMousePos - (Vector2)transform.position;
 
-            var newUp = rotationFromGrubToUp * dirToDesiredPos.normalized;
+            var newUp = Vector2.Lerp(transform.up, rotationFromGrubToUp * dirToDesiredPos.normalized, offcenterCoefficient);
             var angleFromCenter = Vector2.SignedAngle(centerLine, newUp);
             if (angleFromCenter > halvedRotation)
             {
@@ -109,7 +118,7 @@ public class StandartPictureMovement : ObjectSelectable
 
     private void OnDrawGizmosSelected()
     {
-        const int scale = 3;
+        var scale = dimentionRadius;
         const int numOfIterations = 15;
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + transform.up*scale);
