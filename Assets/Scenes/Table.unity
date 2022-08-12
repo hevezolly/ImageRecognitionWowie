@@ -488,6 +488,8 @@ MonoBehaviour:
   input: {fileID: 11400000, guid: 51fc9edb04a69d345890320c2ccf895d, type: 2}
   renderer: {fileID: 1961914260}
   globalOrders: {fileID: 11400000, guid: 9a152cc3afc919f408c9ab656ff819aa, type: 2}
+  maxRotationWhileDrug: 30
+  initialrotationOffset: 0
 --- !u!212 &1961914260
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -548,8 +550,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961914257}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.95, y: -1.55, z: 0}
-  m_LocalScale: {x: 3.6671972, y: 5.1626277, z: 1}
+  m_LocalPosition: {x: 3.04, y: -1.23, z: 0}
+  m_LocalScale: {x: 3.0189102, y: 4.2499785, z: 0.82322}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -719,7 +721,7 @@ Transform:
   m_GameObject: {fileID: 2128535091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.6455, y: -0.7522, z: 0}
-  m_LocalScale: {x: 3.6671972, y: 5.1626277, z: 1}
+  m_LocalScale: {x: 3.2782178, y: 4.615028, z: 0.89393}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -740,6 +742,8 @@ MonoBehaviour:
   input: {fileID: 11400000, guid: 51fc9edb04a69d345890320c2ccf895d, type: 2}
   renderer: {fileID: 2128535092}
   globalOrders: {fileID: 11400000, guid: 9a152cc3afc919f408c9ab656ff819aa, type: 2}
+  maxRotationWhileDrug: 30
+  initialrotationOffset: 0
 --- !u!61 &2128535095
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -16,11 +16,25 @@ public class StandartPictureMovement : ObjectSelectable
     private float maxRotationWhileDrug;
 
     [SerializeField]
-    [Range(0, 360)]
-    private float initialrotationOffset;
+    [Range(-180, 180)]
+    private float initialrotationOffset = 0;
 
-    private Vector2 globalGrubOffset;
+    private Quaternion rotationFromGrubToUp;
+
+    private Vector2 localGrubOffset;
     private bool isInDrug;
+
+    private Vector2 previusMousePos;
+    private Vector2 centerLine;
+
+    private float halvedRotation;
+
+    private void Awake()
+    {
+        ClampAngles();
+        halvedRotation = maxRotationWhileDrug / 2;
+        centerLine = Quaternion.Euler(0, 0, initialrotationOffset) * Vector2.up;
+    }
 
     public override int Order
     {
@@ -41,8 +55,10 @@ public class StandartPictureMovement : ObjectSelectable
     public override void OnSelect()
     {
         var globalPos = input.Position;
-        globalGrubOffset = (Vector2)transform.position - globalPos;
+        rotationFromGrubToUp = Quaternion.FromToRotation(globalPos - (Vector2)transform.position, transform.up);
+        localGrubOffset = transform.InverseTransformVector(globalPos - (Vector2)transform.position);
         isInDrug = true;
+        previusMousePos = Input.mousePosition;
         globalOrders.RequestHighestOrder(this);
     }
 
@@ -56,7 +72,62 @@ public class StandartPictureMovement : ObjectSelectable
         if (isInDrug)
         {
             var newMousePos = input.Position;
-            transform.position = newMousePos + globalGrubOffset;
+            var dirToDesiredPos = newMousePos - (Vector2)transform.position;
+
+            var newUp = rotationFromGrubToUp * dirToDesiredPos.normalized;
+            var angleFromCenter = Vector2.SignedAngle(centerLine, newUp);
+            if (angleFromCenter > halvedRotation)
+            {
+                var angle = (initialrotationOffset - halvedRotation) * Mathf.Deg2Rad;
+                newUp = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle));
+            }
+            if (angleFromCenter < -halvedRotation)
+            {
+                var angle = (initialrotationOffset + halvedRotation) * Mathf.Deg2Rad;
+                newUp = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle));
+            }
+
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, newUp);
+
+            var globalOffset = (Vector2)transform.TransformVector(localGrubOffset);
+            transform.position = newMousePos - globalOffset;
+            previusMousePos = newMousePos;
         }
+    }
+
+    private void ClampAngles()
+    {
+        var upAngle = Vector2.SignedAngle(Vector2.up, transform.up);
+        initialrotationOffset = Mathf.Clamp(initialrotationOffset, -maxRotationWhileDrug / 2 + upAngle,
+            maxRotationWhileDrug / 2 + upAngle);
+    }
+
+    private void OnValidate()
+    {
+        ClampAngles();
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        const int scale = 3;
+        const int numOfIterations = 15;
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + transform.up*scale);
+
+        Gizmos.color = Color.green;
+        var centerDirection = Quaternion.Euler(0, 0, initialrotationOffset) * Vector2.up;
+        var previusDirection = Quaternion.Euler(0, 0, -maxRotationWhileDrug / 2) * centerDirection;
+        var stepRotator = Quaternion.Euler(0, 0, maxRotationWhileDrug / numOfIterations);
+
+        Gizmos.DrawLine(transform.position, transform.position + previusDirection * scale);
+        for (var i = 0; i < numOfIterations; i++)
+        {
+            var currentDir = stepRotator * previusDirection;
+            Gizmos.DrawLine(transform.position + previusDirection * scale,
+                transform.position + currentDir * scale);
+            previusDirection = currentDir;
+        }
+        Gizmos.DrawLine(transform.position, transform.position + previusDirection * scale);
+
     }
 }
