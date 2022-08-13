@@ -2,23 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OtherSpriteOrderOffset : MonoBehaviour, ISortingOrderOffset
+public class MaskOrderOffset : MonoBehaviour, ISortingOrderOffset
 {
     [SerializeField]
-    private int offset;
+    private SpriteMask mask;
     [SerializeField]
-    private SpriteRenderer targetRenderer;
+    [Min(0)]
+    private int addOffset;
     [SerializeField]
+    [Min(0)]
+    private int subOffset;
     private SpriteRenderer lookupRenderer;
-
-    private void Awake()
-    {
-        targetRenderer.sortingOrder = lookupRenderer.sortingOrder + offset;
-    }
-
     public void OnSelect()
     {
-        targetRenderer.sortingOrder = lookupRenderer.sortingOrder + offset;
+        mask.frontSortingOrder = lookupRenderer.sortingOrder + addOffset;
+        mask.backSortingOrder = lookupRenderer.sortingOrder - subOffset;
     }
 
     public void SetLookupRenderer(SpriteRenderer renderer)

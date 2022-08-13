@@ -25,8 +25,8 @@ public class StandartPictureMovement : ObjectSelectable
     [Range(-180, 180)]
     private float initialrotationOffset = 0;
 
-    [SerializeField]
-    private UnityEvent OnSelected;
+   
+    public UnityEvent SelectEvent;
 
     private Quaternion rotationFromGrubToUp;
 
@@ -73,7 +73,7 @@ public class StandartPictureMovement : ObjectSelectable
         isInDrug = true;
         previusMousePos = Input.mousePosition;
         globalOrders.RequestHighestOrder(this);
-        OnSelected?.Invoke();
+        SelectEvent?.Invoke();
     }
 
     public override void OnRelease()
