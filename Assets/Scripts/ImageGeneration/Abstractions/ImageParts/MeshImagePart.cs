@@ -15,11 +15,24 @@ public abstract class MeshImagePart : SelfPopulatingPart
     private List<SecondaryTexture> secondaryTextures;
     [SerializeField]
     private List<ImagePartModification> minorRandomizationBodyModifications;
+    [SerializeField]
+    protected Rect bounds;
 
     protected override void PopulateSelf(SinglePartRequest request)
     {
         GenerateMesh();
         base.PopulateSelf(request);
+    }
+
+    public override Bounds GetBounds()
+    {
+        var center = transform.TransformPoint(bounds.center);
+        var b = new Bounds(center, Vector3.zero);
+        b.Encapsulate(transform.TransformPoint(bounds.center + Vector2.right * bounds.size.x / 2));
+        b.Encapsulate(transform.TransformPoint(bounds.center - Vector2.right * bounds.size.x / 2));
+        b.Encapsulate(transform.TransformPoint((Vector3)bounds.center + Vector3.up * bounds.size.y / 2 + Vector3.forward));
+        b.Encapsulate(transform.TransformPoint(bounds.center - Vector2.up * bounds.size.y / 2));
+        return b;
     }
 
     public void GenerateMesh()
@@ -50,6 +63,12 @@ public abstract class MeshImagePart : SelfPopulatingPart
         {
             ApplyModification(m);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        var bounds = GetBounds();
+        Gizmos.DrawWireCube(bounds.center, bounds.size);
     }
 }
 

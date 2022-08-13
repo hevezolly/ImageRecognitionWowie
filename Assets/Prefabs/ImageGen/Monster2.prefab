@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8606368038931023699}
   - component: {fileID: 8606368038931023697}
   m_Layer: 0
-  m_Name: Monster1
+  m_Name: Monster2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,9 +79,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab77d84361f3a044ad59e101b8e145e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: {fileID: 11400000, guid: 02dd72c5169f29840847661c467ad363, type: 2}
+  id: {fileID: 11400000, guid: 72a2cb846d2f68245b9db6761471878f, type: 2}
   modificationOverrides: []
-  baseSprite: {fileID: 1747940106, guid: d80c7fb8b773a5f40bdaa045be66bd0a, type: 3}
+  baseSprite: {fileID: -1330060638, guid: d80c7fb8b773a5f40bdaa045be66bd0a, type: 3}
   filter: {fileID: 8606368038931023698}
   renderer: {fileID: 8606368038931023699}
   secondaryTextures:
@@ -97,22 +97,22 @@ MonoBehaviour:
   partsSpawnAreas:
   - area:
       serializedVersion: 2
-      x: -0.99
+      x: -1.13
       y: 0.27
+      width: 2.02
+      height: 0.7
+  - area:
+      serializedVersion: 2
+      x: -1.16
+      y: -0.52
+      width: 2.08
+      height: 1.07
+  - area:
+      serializedVersion: 2
+      x: -1.11
+      y: -1.03
       width: 2.05
-      height: 0.99
-  - area:
-      serializedVersion: 2
-      x: -1.14
-      y: -0.7
-      width: 2.3
-      height: 1.34
-  - area:
-      serializedVersion: 2
-      x: -1.1
-      y: -1.25
-      width: 2.19
-      height: 0.84
+      height: 0.75
   eyeRadius: 0.374
   eyeMaxCount: 4
   noseRadius: 1.122
