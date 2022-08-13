@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BodyPartImagePart : SelfPopulatingPart
+public abstract class BodyPartImagePart : MeshImagePart
 {
     protected abstract SinglePartRequest FindSelfInRequest(IImageRequest request);
     protected abstract void FillPartialRequirement(PartRequirement requirement, ImageDescription description);

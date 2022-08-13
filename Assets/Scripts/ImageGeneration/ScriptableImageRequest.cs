@@ -21,7 +21,7 @@ public class ScriptableImageRequest : ScriptableObject, IImageRequest
     [SerializeField]
     private SinglePartRequest nose;
 
-    public SinglePartRequest Nose => Nose;
+    public SinglePartRequest Nose => nose;
 
     [SerializeField]
     private SinglePartRequest mouth;

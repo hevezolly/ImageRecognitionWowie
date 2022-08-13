@@ -241,7 +241,7 @@ MonoBehaviour:
   friction: 0.5
   maxRotationWhileDrug: 30
   initialrotationOffset: 0
-  SelectEvent:
+  OrderChangeEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &7282213246425160204
@@ -311,8 +311,8 @@ MonoBehaviour:
   id: {fileID: 11400000, guid: f14aa452f27a9614d9653ee9743dc661, type: 2}
   modificationOverrides: []
   linker: {fileID: 7282213246425160204}
+  movement: {fileID: 7282213246425160200}
   localSpawnCenter: {x: 0, y: -0.03}
   spawnRange: 0.11
   MinMaxRotation: {x: -10, y: 10}
   ParentOverride: {fileID: 7282213244977670733}
-  minorRandomizationBodyModifications: []

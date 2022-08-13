@@ -7,6 +7,8 @@ public class Image : FullImage
     [SerializeField]
     private SortingOriderOffsetLinker linker;
     [SerializeField]
+    private StandartPictureMovement movement;
+    [SerializeField]
     private Vector2 localSpawnCenter;
     [SerializeField]
     private float spawnRange;
@@ -18,6 +20,7 @@ public class Image : FullImage
     protected override void PopulateSelf(SinglePartRequest request)
     {
         base.PopulateSelf(request);
+        movement.MoveOnTop();
         linker.Link();
     }
 
@@ -36,7 +39,7 @@ public class Image : FullImage
         var bodyPart = provider.GetUninstanciatedPart();
         if (bodyPart == null)
             return null;
-        var position = transform.InverseTransformPoint(GetRandomLocalPosition());
+        var position = transform.TransformPoint(GetRandomLocalPosition());
         var rotation = transform.rotation * GetRandomRotation();
         var instance = Instantiate(bodyPart, position, rotation);
         var parent = ParentOverride ?? transform;

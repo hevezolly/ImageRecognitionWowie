@@ -6,70 +6,113 @@ using System.Linq;
 public class MonsterBody : BodyImagePart
 {
     [SerializeField]
-    private Sprite baseSprite;
+    private List<SpawnAreaData> partsSpawnAreas;
+
     [SerializeField]
-    private MeshFilter filter;
+    private float subpartsRadius;
     [SerializeField]
-    private MeshRenderer renderer;
+    private Vector2 minMaxRotation;
     [SerializeField]
-    private List<SecondaryTexture> secondaryTextures;
-    [SerializeField]
-    private List<ImagePartModification> minorRandomizationBodyModifications;
-    protected override void PopulateSelf(SinglePartRequest request)
+    private Transform parentOverride;
+
+    private List<SpawnAreaData> avalibleAreas;
+
+    public override void PopulateBy(IImageRequest request)
     {
-        GenerateMesh();
-        base.PopulateSelf(request);
+        avalibleAreas = new List<SpawnAreaData>(partsSpawnAreas);
+        base.PopulateBy(request);
     }
+
+    private Quaternion GetRandomRotation()
+    {
+        return Quaternion.Euler(0, 0, Mathf.Lerp(minMaxRotation.x, minMaxRotation.y, Random.value));
+    }
+
+    private SpawnAreaData SelectArea()
+    {
+        var i = Random.Range(0, avalibleAreas.Count);
+        var area = avalibleAreas[i];
+        avalibleAreas.RemoveAt(i);
+        return area;
+    }
+
+    private List<Vector2> GetAreaSpawnPositions(SpawnAreaData area)
+    {
+        var positions = new List<Vector2>();
+        var count = Random.Range(1, area.maxNumberOfElements + 1);
+        for (var i = 0; i < count; i++)
+        {
+            for (var tryIndex = 0; tryIndex < 20; tryIndex++)
+            {
+                var pos = new Vector2(Random.Range(area.area.xMin, area.area.xMax),
+                    Random.Range(area.area.yMin, area.area.yMax));
+                if (positions.Count == 0 || positions.All(p => Vector2.Distance(p, pos) > subpartsRadius))
+                {
+                    positions.Add(pos);
+                    break;
+                }
+            }
+        }
+        return positions;
+    }
+
+    private List<ImagePart> SpawnParts(IPartProvider provider) 
+    {
+        var area = SelectArea();
+        var parts = new List<ImagePart>();
+        foreach (var spawnPoint in GetAreaSpawnPositions(area))
+        {
+            var globalPos = transform.TransformPoint(spawnPoint);
+            var inst = Instantiate(provider.GetUninstanciatedPart(), globalPos, GetRandomRotation());
+            var parent = parentOverride ?? transform;
+            inst.transform.SetParent(parent);
+            parts.Add(inst);
+        }
+
+        return parts;
+    }
+
     protected override List<ImagePart> InstanciateEyes(IPartProvider partProvider)
     {
-        //throw new System.NotImplementedException();
-        return Enumerable.Empty<ImagePart>().ToList();
+
+        return SpawnParts(partProvider);
     }
 
     protected override List<ImagePart> InstanciateMouth(IPartProvider partProvider)
     {
-        //throw new System.NotImplementedException();
-        return Enumerable.Empty<ImagePart>().ToList();
+        return SpawnParts(partProvider);
     }
 
     protected override List<ImagePart> InstanciateNose(IPartProvider partProvider)
     {
-        //throw new System.NotImplementedException();
-        return Enumerable.Empty<ImagePart>().ToList();
+        return SpawnParts(partProvider);
     }
 
-    private void GenerateMesh()
+    
+
+
+    private void OnDrawGizmosSelected()
     {
-        SetMeshFrom(baseSprite, secondaryTextures);
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.color = Color.red;
+        foreach (var a in partsSpawnAreas)
+        {
+            Gizmos.DrawWireCube(a.area.center, a.area.size);
+        }
+        Gizmos.DrawWireSphere(Vector3.zero, subpartsRadius);
+        var center = Vector3.zero;
+        var rot = Quaternion.Euler(0, 0, minMaxRotation.x);
+        Gizmos.DrawLine(center, center + rot * transform.up);
+        var rot2 = Quaternion.Euler(0, 0, minMaxRotation.y);
+        Gizmos.DrawLine(center, center + rot2 * transform.up);
     }
 
-    public void SetMeshFrom(Sprite sprite, List<SecondaryTexture> secondaryTextures)
+    [System.Serializable]
+    private class SpawnAreaData
     {
-        var mesh = filter.mesh;
-        if (mesh == null)
-            mesh = new Mesh();
-        mesh.SetVertices(sprite.vertices.Select(v => (Vector3)v).ToArray());
-        mesh.SetUVs(0, sprite.uv);
-        mesh.SetTriangles(sprite.triangles, 0);
-        mesh.SetNormals(Enumerable.Repeat(-Vector3.forward, sprite.uv.Length).ToArray());
-        filter.mesh = mesh;
-        renderer.material.SetTexture("_MainTex", sprite.texture);
-        foreach (var s in secondaryTextures)
-        {
-            renderer.material.SetTexture(s.name, s.texture);
-        }
-        foreach (var m in minorRandomizationBodyModifications)
-        {
-            ApplyModification(m);
-        }
+        public Rect area;
+        public int maxNumberOfElements;
     }
 }
 
-[System.Serializable]
-public class SecondaryTexture
-{
-    
-    public Texture2D texture;
-    
-    public string name;
-}
+
