@@ -14,8 +14,6 @@ public class Image : FullImage
     private Vector2 MinMaxRotation;
     [SerializeField]
     private Transform ParentOverride;
-    [SerializeField]
-    private List<ImagePartModification> minorRandomizationBodyModifications;
 
     protected override void PopulateSelf(SinglePartRequest request)
     {

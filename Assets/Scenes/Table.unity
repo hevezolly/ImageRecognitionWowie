@@ -1272,11 +1272,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab77d84361f3a044ad59e101b8e145e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: {fileID: 0}
+  id: {fileID: 11400000, guid: 02dd72c5169f29840847661c467ad363, type: 2}
   modificationOverrides: []
   baseSprite: {fileID: 0}
-  filter: {fileID: 0}
-  renderer: {fileID: 0}
+  filter: {fileID: 1923268316}
+  renderer: {fileID: 1923268317}
   secondaryTextures: []
 --- !u!4 &1961914261 stripped
 Transform:
