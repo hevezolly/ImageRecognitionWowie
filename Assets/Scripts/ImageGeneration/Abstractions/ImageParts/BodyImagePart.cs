@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public abstract class BodyImagePart : SelfPopulatingPart
+public abstract class BodyImagePart : MeshImagePart
 {
     protected List<ImagePart> eyes;
     protected List<ImagePart> noses;

@@ -26,7 +26,7 @@ public class StandartPictureMovement : ObjectSelectable
     private float initialrotationOffset = 0;
 
    
-    public UnityEvent SelectEvent;
+    public UnityEvent OrderChangeEvent;
 
     private Quaternion rotationFromGrubToUp;
 
@@ -72,8 +72,13 @@ public class StandartPictureMovement : ObjectSelectable
         localGrubOffset = transform.InverseTransformVector(dir);
         isInDrug = true;
         previusMousePos = Input.mousePosition;
+        MoveOnTop();
+    }
+
+    public void MoveOnTop()
+    {
         globalOrders.RequestHighestOrder(this);
-        SelectEvent?.Invoke();
+        OrderChangeEvent?.Invoke();
     }
 
     public override void OnRelease()

@@ -26,8 +26,8 @@ public class SortingOriderOffsetLinker : MonoBehaviour
         foreach (var o in offsets)
         {
             o.SetLookupRenderer(lookupRenderer);
-            movement.SelectEvent.RemoveListener(o.OnSelect);
-            movement.SelectEvent.AddListener(o.OnSelect);
+            movement.OrderChangeEvent.RemoveListener(o.OnSelect);
+            movement.OrderChangeEvent.AddListener(o.OnSelect);
             o.OnSelect();
         }
     }

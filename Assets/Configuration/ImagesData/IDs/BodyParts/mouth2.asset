@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 965b1075f880ca941bfd0d0eec818930, type: 3}
-  m_Name: body3
+  m_Name: mouth2
   m_EditorClassIdentifier: 
-  id: "gi\u0438z"
-  Description: body 1
+  id: xomeh
+  Description: 
   childProperties: []

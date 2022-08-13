@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class MouthImagePart: BodyPartImagePart
+public class EyesImagePart : BodyPartImagePart
 {
     protected override void FillPartialRequirement(PartRequirement requirement, ImageDescription description)
     {
-        description.Mouth = requirement;
+        description.Eyes = requirement;
     }
 
     protected override SinglePartRequest FindSelfInRequest(IImageRequest request)
     {
-        return request.Mouth;
+        return request.Eyes;
     }
 }
