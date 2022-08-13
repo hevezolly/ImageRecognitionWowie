@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Image : FullImage
+public class ImageObject : FullImage
 {
-    [SerializeField]
-    private SortingOriderOffsetLinker linker;
-    [SerializeField]
-    private StandartPictureMovement movement;
     [SerializeField]
     private Vector2 localSpawnCenter;
     [SerializeField]
@@ -20,8 +16,6 @@ public class Image : FullImage
     protected override void PopulateSelf(SinglePartRequest request)
     {
         base.PopulateSelf(request);
-        movement.MoveOnTop();
-        linker.Link();
     }
 
     private Vector2 GetRandomLocalPosition() 

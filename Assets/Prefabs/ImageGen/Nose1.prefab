@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1999567953890308737}
   - component: {fileID: 4480525859809448086}
   - component: {fileID: 143930446115594148}
-  - component: {fileID: 105613573656967020}
   - component: {fileID: 1885487315891459875}
   m_Layer: 0
   m_Name: Nose1
@@ -28,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3782752753393916453}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.025, y: -0.0378, z: 0}
-  m_LocalScale: {x: 1.8203671, y: 4.750633, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.056708045, w: 0.99839085}
+  m_LocalPosition: {x: -0.12366521, y: 13.660924, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -50,11 +49,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: {fileID: 11400000, guid: bf07ee0b7fcb5c343884202e0440dd0c, type: 2}
   modificationOverrides: []
-  baseSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  baseSprite: {fileID: -2027854876, guid: d80c7fb8b773a5f40bdaa045be66bd0a, type: 3}
   filter: {fileID: 4480525859809448086}
   renderer: {fileID: 143930446115594148}
-  secondaryTextures: []
+  secondaryTextures:
+  - texture: {fileID: 2800000, guid: e205cce4945ec4e42b656539f26165c9, type: 3}
+    name: _AlphaMap
   minorRandomizationBodyModifications: []
+  bounds:
+    serializedVersion: 2
+    x: -0.28
+    y: -0.24
+    width: 0.56
+    height: 0.45
 --- !u!33 &4480525859809448086
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -83,7 +90,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9852cd12ac072a49a0e0b9c0e96f950, type: 2}
+  - {fileID: 2100000, guid: ea6f16a6f6c8e094dae1c5ca63a824b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103,23 +110,8 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 19
+  m_SortingOrder: 4
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &105613573656967020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3782752753393916453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a5b4b75494aac1479fc956010d96f92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lookUpRenderer: {fileID: 0}
-  setter: {fileID: 1885487315891459875}
-  offset: 3
 --- !u!114 &1885487315891459875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,4 +126,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer: {fileID: 143930446115594148}
   sortingLayer: Default
-  sortingOrder: 19
+  sortingOrder: 4

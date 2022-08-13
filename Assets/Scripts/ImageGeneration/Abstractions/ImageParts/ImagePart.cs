@@ -11,6 +11,22 @@ public abstract class ImagePart : MonoBehaviour, IPartProvider
     public abstract void PopulateBy(IImageRequest request);
     public abstract void FillDescription(ImageDescription description);
 
+    private Material _mat;
+    public virtual Material usedMaterial
+    {
+        get
+        {
+            if (_mat == null)
+                _mat = GetComponent<Renderer>().material;
+            return _mat;
+        }
+    }
+
+    public virtual Bounds GetBounds()
+    {
+        return new Bounds();
+    }
+
     public ImagePart GetUninstanciatedPart()
     {
         return this;

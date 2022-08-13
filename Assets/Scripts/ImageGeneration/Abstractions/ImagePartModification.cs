@@ -10,7 +10,7 @@ public abstract class ImagePartModification : ScriptableObject
     [SerializeField]
     private ModificationType modificationType;
 
-    public ModificationType ModificationType;
+    public ModificationType ModificationType => modificationType;
     public ImagePropertyID Id => id;
     public abstract void MakeChangeTo(ImagePart part);
     
