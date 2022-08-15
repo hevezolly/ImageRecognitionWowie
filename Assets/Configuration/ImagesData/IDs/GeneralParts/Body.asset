@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: aaan
   Description: 
-  childProperties: []
+  childProperties:
+  - {fileID: 11400000, guid: 02dd72c5169f29840847661c467ad363, type: 2}
+  - {fileID: 11400000, guid: 72a2cb846d2f68245b9db6761471878f, type: 2}
+  inversedProperties: []

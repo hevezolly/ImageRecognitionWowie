@@ -11,6 +11,6 @@ public class EyesImagePart : BodyPartImagePart
 
     protected override SinglePartRequest FindSelfInRequest(IImageRequest request)
     {
-        return request.Eyes;
+        return request.GetCorrectEyesVariant();
     }
 }

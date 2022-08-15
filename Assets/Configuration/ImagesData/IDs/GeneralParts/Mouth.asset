@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: zekif
   Description: 
-  childProperties: []
+  childProperties:
+  - {fileID: 11400000, guid: fedc9dd8fa0395e4c87e6f384acbaeeb, type: 2}
+  - {fileID: 11400000, guid: a42d7afbefc5b9f448e9974c1b40b03e, type: 2}
+  inversedProperties: []

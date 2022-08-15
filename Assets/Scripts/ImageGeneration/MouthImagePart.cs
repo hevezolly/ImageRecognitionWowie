@@ -11,6 +11,6 @@ public class MouthImagePart: BodyPartImagePart
 
     protected override SinglePartRequest FindSelfInRequest(IImageRequest request)
     {
-        return request.Mouth;
+        return request.GetCorrectMouthVariant();
     }
 }

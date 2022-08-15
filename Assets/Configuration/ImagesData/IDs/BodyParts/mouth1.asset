@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 965b1075f880ca941bfd0d0eec818930, type: 3}
   m_Name: mouth1
   m_EditorClassIdentifier: 
-  id: sudaj
+  id: suda-j
   Description: 
   childProperties: []

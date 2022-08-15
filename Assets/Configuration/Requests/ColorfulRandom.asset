@@ -16,24 +16,24 @@ MonoBehaviour:
     partProvider:
       target: {fileID: 7282213246425160195, guid: 5635aeed2ac7e2f45ad854d073f6d701, type: 3}
     shape: {fileID: 0}
-    style: {fileID: 0}
+    style: {fileID: 11400000, guid: 78805721f9991aa4fa2bca0a93de4b0b, type: 2}
   body:
     partProvider:
-      target: {fileID: 11400000, guid: c307c9cc424c4c248a469941168acbc8, type: 2}
+      target: {fileID: 8606368038931023726, guid: 7cb8a23c4362b104badfe7827c673dbe, type: 3}
     shape: {fileID: 0}
     style: {fileID: 0}
   eyes:
     partProvider:
-      target: {fileID: 11400000, guid: 6f2e619ae072f1f47b65de2500f4d9dd, type: 2}
-    shape: {fileID: 0}
-    style: {fileID: 11400000, guid: 78805721f9991aa4fa2bca0a93de4b0b, type: 2}
+      target: {fileID: 1807181635726598611, guid: bd18b909b23d29d4a911553394c2cdee, type: 3}
+    shape: {fileID: 11400000, guid: 54b0cd39bb9276e44a9860e018af9714, type: 2}
+    style: {fileID: 0}
   nose:
     partProvider:
-      target: {fileID: 11400000, guid: 871127ef967adb24db183f45b06a3712, type: 2}
+      target: {fileID: 8705135122002281401, guid: 829048b1679dafa4a86b6ba1c40c5ab2, type: 3}
     shape: {fileID: 0}
-    style: {fileID: 11400000, guid: b28c9927d9d576645b1d0cd7a7b53bd2, type: 2}
+    style: {fileID: 0}
   mouth:
     partProvider:
       target: {fileID: 11400000, guid: 37e4a82df2b9d6540b314f00db3d024f, type: 2}
     shape: {fileID: 0}
-    style: {fileID: 11400000, guid: 68cd5aa618e67db47a0b1763f6801cb8, type: 2}
+    style: {fileID: 0}

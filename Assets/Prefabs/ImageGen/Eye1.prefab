@@ -27,8 +27,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7359542613679618734}
-  m_LocalRotation: {x: 0, y: 0, z: 0.033647798, w: 0.99943376}
-  m_LocalPosition: {x: -0.29907277, y: 13.405037, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.016798357, w: 0.9998589}
+  m_LocalPosition: {x: 0.6819741, y: 13.681784, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,7 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: {fileID: 11400000, guid: 2404cc500e3c1ae43a30be53664416e7, type: 2}
-  modificationOverrides: []
+  modificationOverrides:
+  - modificationToOverride: {fileID: 11400000, guid: 54b0cd39bb9276e44a9860e018af9714, type: 2}
+    newModification: {fileID: 11400000, guid: 1362cc11a148342419b206f29cd2fcc9, type: 2}
   baseSprite: {fileID: -1021115727, guid: d80c7fb8b773a5f40bdaa045be66bd0a, type: 3}
   filter: {fileID: 7814684414774947869}
   renderer: {fileID: 6026387427105488687}
@@ -90,7 +92,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: acd77255effb45d47b2d54b78725bfa4, type: 2}
+  - {fileID: 2100000, guid: ea6f16a6f6c8e094dae1c5ca63a824b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

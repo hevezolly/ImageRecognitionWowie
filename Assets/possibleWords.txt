@@ -7,7 +7,7 @@ comba		- any eye
 eeee		- eye1
 okula		- eye2
 quw			- eye3
-mumebu		- any nose
+mum-ebu		- any nose
 ikupaka		- nose1
 londukra	- nose2
 ruzaw		- nose3
@@ -15,4 +15,9 @@ zekif		- any mouth
 sudaj		- mouth1
 xomeh		- mouth2
 huza		- mouth3
+kuka		- red
+wivze		- green
+lumaaaa		- blue
+mez-quaj	- white
+xuuu		- wave
 

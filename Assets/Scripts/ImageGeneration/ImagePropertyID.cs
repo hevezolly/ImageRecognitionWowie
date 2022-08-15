@@ -13,8 +13,13 @@ public class ImagePropertyID : ScriptableObject
     private string Description;
     [SerializeField]
     private List<ImagePropertyID> childProperties;
+    [SerializeField]
+    private List<ImagePropertyID> inversedProperties;
 
     public string Value => id;
+
+    public IEnumerable<ImagePropertyID> GetInverseIds() => inversedProperties;
+    public IEnumerable<ImagePropertyID> GetChildIds() => childProperties;
 
     public bool IsDescriptionFor(ImagePropertyID otherId)
     {

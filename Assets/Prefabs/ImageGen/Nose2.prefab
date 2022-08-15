@@ -27,8 +27,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3782752753393916453}
-  m_LocalRotation: {x: 0, y: 0, z: 0.030108301, w: 0.99954665}
-  m_LocalPosition: {x: 0.4897526, y: 13.814196, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.06835872, w: 0.9976608}
+  m_LocalPosition: {x: -0.5075786, y: 12.703217, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,7 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: {fileID: 11400000, guid: f49855ace6c04614aa211ead404c0784, type: 2}
-  modificationOverrides: []
+  modificationOverrides:
+  - modificationToOverride: {fileID: 11400000, guid: 54b0cd39bb9276e44a9860e018af9714, type: 2}
+    newModification: {fileID: 11400000, guid: 884116ae182486642baae1b9dda631fc, type: 2}
   baseSprite: {fileID: 2068788068, guid: d80c7fb8b773a5f40bdaa045be66bd0a, type: 3}
   filter: {fileID: 4480525859809448086}
   renderer: {fileID: 143930446115594148}
