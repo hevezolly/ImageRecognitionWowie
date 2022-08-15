@@ -69,8 +69,7 @@ public class GlobalObjectsOrder : ScriptableObject, IComparer<ObjectSelectable>
         selectableObjects.Add(obj);
         if (MaxOrder >= maxAvalibleOrder)
             OffsetAllOrders();
-        else
-            UpdateOrders();
+        UpdateOrders();
     }
 
     public void Unregister(ObjectSelectable obj)

@@ -22,6 +22,18 @@ public abstract class ImagePart : MonoBehaviour, IPartProvider
         }
     }
 
+    private Mesh _mesh;
+
+    public virtual Mesh usedMesh
+    {
+        get
+        {
+            if (_mesh == null)
+                _mesh = GetComponent<MeshFilter>()?.mesh;
+            return _mesh;
+        }
+    }
+
     public virtual Bounds GetBounds()
     {
         return new Bounds();

@@ -12,6 +12,24 @@ public class ImageObject : FullImage
     private Vector2 MinMaxRotation;
     [SerializeField]
     private Transform ParentOverride;
+    [SerializeField]
+    private Material materialToUse;
+    [SerializeField]
+    private List<Renderer> renderers;
+
+    private Material _material;
+
+    public override Material usedMaterial => _material;
+    
+    protected override void Awake()
+    {
+        base.Awake();
+        _material = new Material(materialToUse);
+        foreach (var r in renderers)
+        {
+            r.material = _material;
+        }
+    }
 
     protected override void PopulateSelf(SinglePartRequest request)
     {

@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 965b1075f880ca941bfd0d0eec818930, type: 3}
   m_Name: Nose
   m_EditorClassIdentifier: 
-  id: mumebu
+  id: mum-ebu
   Description: 
-  childProperties: []
+  childProperties:
+  - {fileID: 11400000, guid: bf07ee0b7fcb5c343884202e0440dd0c, type: 2}
+  - {fileID: 11400000, guid: f49855ace6c04614aa211ead404c0784, type: 2}
+  inversedProperties: []

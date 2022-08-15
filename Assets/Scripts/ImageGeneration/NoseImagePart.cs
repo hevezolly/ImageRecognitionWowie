@@ -11,6 +11,6 @@ public class NoseImagePart : BodyPartImagePart
 
     protected override SinglePartRequest FindSelfInRequest(IImageRequest request)
     {
-        return request.Nose;
+        return request.GetCorrectNoseVariant();
     }
 }

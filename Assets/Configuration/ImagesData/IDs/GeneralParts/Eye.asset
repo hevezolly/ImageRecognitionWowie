@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: comba
   Description: 
-  childProperties: []
+  childProperties:
+  - {fileID: 11400000, guid: 2404cc500e3c1ae43a30be53664416e7, type: 2}
+  - {fileID: 11400000, guid: db500b24cb12432459aed910dba12d85, type: 2}
+  inversedProperties: []

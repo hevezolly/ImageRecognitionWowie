@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65eba7f8d1d76ff4a9340a0df578c9c8, type: 3}
   m_Name: GlobalObjectsOrder
   m_EditorClassIdentifier: 
-  minOrder: -50
-  maxAvalibleOrder: 200
-  offsetBetweenOrders: 5
+  minOrder: 0
+  maxAvalibleOrder: 250
+  offsetBetweenOrders: 6

@@ -25,7 +25,7 @@ public abstract class BodyImagePart : MeshImagePart
             noses = InstanciateNose(request.Nose.PartProvider);
             noses.ForEach(e => e.PopulateBy(request));
         }
-        PopulateSelf(request.Image);
+        PopulateSelf(request.GetCorrectBodyVariant());
     }
 
     public override void FillDescription(ImageDescription description)

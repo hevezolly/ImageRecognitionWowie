@@ -6,13 +6,13 @@ using UnityEngine.Events;
 public class StandartPictureMovement : ObjectSelectable
 {
     [SerializeField]
-    private InputPointer input;
+    protected InputPointer input;
     [SerializeField]
-    private SpriteRenderer renderer;
+    protected SpriteRenderer renderer;
     [SerializeField]
-    private GlobalObjectsOrder globalOrders;
+    protected GlobalObjectsOrder globalOrders;
     [SerializeField]
-    private float dimentionRadius;
+    protected float dimentionRadius;
     [SerializeField]
     [Range(0, 1)]
     private float friction;
@@ -30,7 +30,7 @@ public class StandartPictureMovement : ObjectSelectable
 
     private Quaternion rotationFromGrubToUp;
 
-    private Vector2 localGrubOffset;
+    protected Vector2 localGrubOffset;
     private bool isInDrug;
 
     private Vector2 previusMousePos;
@@ -50,7 +50,11 @@ public class StandartPictureMovement : ObjectSelectable
     public override int Order
     {
         get => renderer.sortingOrder;
-        set => renderer.sortingOrder = value;
+        set 
+        {
+            renderer.sortingOrder = value;
+            OrderChangeEvent?.Invoke();
+        }
     }
 
     private void OnEnable()
@@ -78,7 +82,6 @@ public class StandartPictureMovement : ObjectSelectable
     public void MoveOnTop()
     {
         globalOrders.RequestHighestOrder(this);
-        OrderChangeEvent?.Invoke();
     }
 
     public override void OnRelease()
@@ -127,7 +130,7 @@ public class StandartPictureMovement : ObjectSelectable
         ClampAngles();
     }
 
-    private void OnDrawGizmosSelected()
+    protected virtual void OnDrawGizmosSelected()
     {
         var scale = dimentionRadius;
         const int numOfIterations = 15;

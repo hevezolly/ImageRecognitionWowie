@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40aac3a2fd739dd4b99dbff0a108b060, type: 3}
+  m_Name: Stage2
+  m_EditorClassIdentifier: 
+  stageFinishEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  currentNumberOfPictures: {fileID: 11400000, guid: 4b3c928e897ae6d419136e64f5ae7a10, type: 2}
+  currentRequirement: {fileID: 11400000, guid: a9c700244871df74eae30f9dbfbadd8a, type: 2}
+  requirement: {fileID: 11400000, guid: b291cc301c969b84aa528ac2b2c0dfae, type: 2}
+  correctRequests:
+  - target: {fileID: 11400000, guid: 24746718d33d97349a711b1f571e2304, type: 2}
+  - target: {fileID: 11400000, guid: 20f2bbd88c3ec1c4793e1c9b03b10d72, type: 2}
+  - target: {fileID: 11400000, guid: 6b106b4ae459eec48b4d8967ea952570, type: 2}
+  incorrectRequests:
+  - target: {fileID: 11400000, guid: b91adeb0265f8c943a7f13b028e15a6d, type: 2}
+  - target: {fileID: 11400000, guid: a3b3ee5011d4efc408289cac75a95f34, type: 2}
+  - target: {fileID: 11400000, guid: fba0c29ea6903d64da196d5e771df890, type: 2}
+  minMaxTotalImages: {x: 6, y: 6}
+  correctImages: 3
+  showAnswers: 1

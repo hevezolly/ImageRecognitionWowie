@@ -19,10 +19,15 @@ public static class ImageRequestExtentions
         if (request.Body == null || request.Body.PartProvider == null)
             return null;
         var body = request.Body.PartProvider;
-        var shape = request.Body.Shape ?? request.Image.Shape;
-        var style = request.Body.Style ?? request.Image.Style;
+        var shape = request.Body.Shape ?? (request.Image.Shape.Propagate() ? request.Image.Shape : null);
+        var style = request.Body.Style ?? (request.Image.Style.Propagate() ? request.Image.Style : null);
 
         return new SinglePartRequest(body, shape, style);
+    }
+    
+    private static bool Propagate(this ImagePartModification mod)
+    {
+        return mod != null && mod.Propagate;
     }
 
     private static SinglePartRequest GetCorrectVariantOf(this IImageRequest request, SinglePartRequest part)
@@ -32,8 +37,12 @@ public static class ImageRequestExtentions
         if (part == null || part.PartProvider == null)
             return null;
         var body = part.PartProvider;
-        var shape = part.Shape ?? request.Body.Shape ?? request.Image.Shape;
-        var style = part.Style ?? request.Body.Style ?? request.Image.Style;
+        var shape = part.Shape ?? 
+            (request.Body.Shape.Propagate() ? request.Body.Shape : null) ??
+            (request.Image.Shape.Propagate() ? request.Image.Shape : null);
+        var style = part.Style ??
+            (request.Body.Style.Propagate() ? request.Body.Style : null) ??
+            (request.Image.Style.Propagate() ? request.Image.Style : null);
 
         return new SinglePartRequest(body, shape, style);
     }
@@ -72,9 +81,9 @@ public class SinglePartRequest
     [SerializeField]
     private ImagePartModification style;
 
-    public IPartProvider PartProvider => baseProvider ?? partProvider?.I;
-    public ImagePartModification Shape => shape;
-    public ImagePartModification Style => style;
+    public IPartProvider PartProvider { get => baseProvider ?? partProvider?.I; set => baseProvider = value; }
+    public ImagePartModification Shape { get => shape; set => shape = value; }
+    public ImagePartModification Style { get => style; set => style = value; }
 
     private IPartProvider baseProvider;
 

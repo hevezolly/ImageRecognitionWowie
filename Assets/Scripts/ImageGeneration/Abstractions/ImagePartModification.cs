@@ -9,6 +9,10 @@ public abstract class ImagePartModification : ScriptableObject
     private ImagePropertyID id;
     [SerializeField]
     private ModificationType modificationType;
+    [SerializeField]
+    private bool propagate;
+
+    public bool Propagate => propagate;
 
     public ModificationType ModificationType => modificationType;
     public ImagePropertyID Id => id;

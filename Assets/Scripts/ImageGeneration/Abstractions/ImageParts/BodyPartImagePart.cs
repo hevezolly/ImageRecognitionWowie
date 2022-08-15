@@ -9,6 +9,7 @@ public abstract class BodyPartImagePart : MeshImagePart
 
     public override void PopulateBy(IImageRequest request)
     {
+
         PopulateSelf(FindSelfInRequest(request));
     }
 
