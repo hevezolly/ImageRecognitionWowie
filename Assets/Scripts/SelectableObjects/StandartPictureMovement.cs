@@ -18,6 +18,13 @@ public class StandartPictureMovement : ObjectSelectable
     private float friction;
 
     [SerializeField]
+    private AudioSource pickUpSound;
+    [SerializeField]
+    private AudioSource dropSound;
+    [SerializeField]
+    private Vector2 minMaxPitch;
+
+    [SerializeField]
     [Range(0, 360)]
     private float maxRotationWhileDrug;
 
@@ -76,6 +83,12 @@ public class StandartPictureMovement : ObjectSelectable
         localGrubOffset = transform.InverseTransformVector(dir);
         isInDrug = true;
         previusMousePos = Input.mousePosition;
+        if (pickUpSound != null)
+        {
+            var pitch = Random.Range(minMaxPitch.x, minMaxPitch.y);
+            pickUpSound.pitch = pitch;
+            pickUpSound.Play();
+        }
         MoveOnTop();
     }
 
@@ -86,6 +99,12 @@ public class StandartPictureMovement : ObjectSelectable
 
     public override void OnRelease()
     {
+        if (dropSound != null)
+        {
+            var pitch = Random.Range(minMaxPitch.x, minMaxPitch.y);
+            dropSound.pitch = pitch;
+            dropSound.Play();
+        }
         isInDrug = false;
     }
 

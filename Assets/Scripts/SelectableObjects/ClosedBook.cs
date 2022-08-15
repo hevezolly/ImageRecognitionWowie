@@ -8,6 +8,8 @@ public class ClosedBook : StandartPictureMovement
     private Vector2 openCenter;
     [SerializeField]
     private OpenedBook openedBook;
+    [SerializeField]
+    private AudioSource play;
 
     private Vector2 selectPosition;
     public override void OnSelect()
@@ -37,6 +39,7 @@ public class ClosedBook : StandartPictureMovement
 
     public void Open(Vector3 position)
     {
+        play.Play();
         var offset = transform.TransformVector(-openCenter);
         transform.position = position + offset;
     }

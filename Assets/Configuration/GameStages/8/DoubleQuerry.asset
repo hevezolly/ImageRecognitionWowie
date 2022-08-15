@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40aac3a2fd739dd4b99dbff0a108b060, type: 3}
+  m_Name: DoubleQuerry
+  m_EditorClassIdentifier: 
+  stageFinishEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  currentNumberOfPictures: {fileID: 11400000, guid: 4b3c928e897ae6d419136e64f5ae7a10, type: 2}
+  currentRequirement: {fileID: 11400000, guid: a9c700244871df74eae30f9dbfbadd8a, type: 2}
+  requirement: {fileID: 11400000, guid: 4dc23d25116e33c48a9aa913c995da0c, type: 2}
+  correctRequests:
+  - target: {fileID: 11400000, guid: c95cb526c8136cd439c5440abe57f60a, type: 2}
+  - target: {fileID: 11400000, guid: 99eb5aa017806684faf216c0075f54e0, type: 2}
+  - target: {fileID: 11400000, guid: 5fef7053ae752be459f95844c310fab9, type: 2}
+  incorrectRequests:
+  - target: {fileID: 11400000, guid: 3f685bda1dd2e834c9b377f835394678, type: 2}
+  - target: {fileID: 11400000, guid: 1f52443af0ea6804eba7ca03d71db1c3, type: 2}
+  - target: {fileID: 11400000, guid: b1a3e32c38323cc478c1082322b2a2a0, type: 2}
+  - target: {fileID: 11400000, guid: 4d384824e348a124abb44326a5a015b1, type: 2}
+  - target: {fileID: 11400000, guid: 5ff4dfda159e20643a8bcca58d1c23ef, type: 2}
+  minMaxTotalImages: {x: 8, y: 8}
+  correctImages: 3
+  showAnswers: 0

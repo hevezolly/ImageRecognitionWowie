@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40aac3a2fd739dd4b99dbff0a108b060, type: 3}
+  m_Name: SneakyWaveLearn
+  m_EditorClassIdentifier: 
+  stageFinishEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  currentNumberOfPictures: {fileID: 11400000, guid: 4b3c928e897ae6d419136e64f5ae7a10, type: 2}
+  currentRequirement: {fileID: 11400000, guid: a9c700244871df74eae30f9dbfbadd8a, type: 2}
+  requirement: {fileID: 11400000, guid: d9adc5788a6a3ba46b85940fd07e6159, type: 2}
+  correctRequests:
+  - target: {fileID: 11400000, guid: 0d9f57d811b9bca4c90541a47a921323, type: 2}
+  - target: {fileID: 11400000, guid: 12d592b0bac49034e92b39ae8ed3ee2f, type: 2}
+  incorrectRequests:
+  - target: {fileID: 11400000, guid: 02056742f172ccf4693a5e8e73bcdf64, type: 2}
+  - target: {fileID: 11400000, guid: e72ab51d9cb688347921d9a9c373ba7b, type: 2}
+  - target: {fileID: 11400000, guid: 386b0a34994327f48905cc548097d36f, type: 2}
+  minMaxTotalImages: {x: 5, y: 5}
+  correctImages: 2
+  showAnswers: 0

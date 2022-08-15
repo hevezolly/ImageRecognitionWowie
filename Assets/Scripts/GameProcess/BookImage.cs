@@ -11,6 +11,10 @@ public class BookImage : MonoBehaviour
     private Mask mask;
     [SerializeField]
     private Image image;
+    [SerializeField]
+    private GameObject GoodMark;
+    [SerializeField]
+    private GameObject BadMark;
 
     public void SetTexture(TextureData data)
     {
@@ -20,5 +24,9 @@ public class BookImage : MonoBehaviour
             mask.enabled = true;
             image.enabled = true;
         }
+        if (data.type == SpawType.Correct)
+            GoodMark.SetActive(true);
+        else if (data.type == SpawType.Incorrect)
+            BadMark.SetActive(true);
     }
 }

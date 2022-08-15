@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41405066b5e8efc41a1bd0d43c0fb7c3, type: 3}
+  m_Name: Incorrect 3
+  m_EditorClassIdentifier: 
+  image:
+    partProvider:
+      target: {fileID: 7282213246425160195, guid: 5635aeed2ac7e2f45ad854d073f6d701, type: 3}
+    shape: {fileID: 0}
+    style: {fileID: 0}
+  body:
+    partProvider:
+      target: {fileID: 11400000, guid: c307c9cc424c4c248a469941168acbc8, type: 2}
+    shape: {fileID: 0}
+    style: {fileID: 0}
+  eyes:
+    partProvider:
+      target: {fileID: 1807181635726598611, guid: bd18b909b23d29d4a911553394c2cdee, type: 3}
+    shape: {fileID: 0}
+    style: {fileID: 11400000, guid: 68cd5aa618e67db47a0b1763f6801cb8, type: 2}
+  nose:
+    partProvider:
+      target: {fileID: 1999567953890308737, guid: 945708823c173834a97f7736ad5e9764, type: 3}
+    shape: {fileID: 0}
+    style: {fileID: 0}
+  mouth:
+    partProvider:
+      target: {fileID: 11400000, guid: 37e4a82df2b9d6540b314f00db3d024f, type: 2}
+    shape: {fileID: 0}
+    style: {fileID: 0}

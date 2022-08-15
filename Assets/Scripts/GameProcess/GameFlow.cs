@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameFlow : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class GameFlow : MonoBehaviour
 
     public GameStageArgs args { get; private set; }
 
+    public UnityEvent StageCyckleEvent;
+
     private void Start()
     {
         CykleStage();
@@ -47,9 +50,9 @@ public class GameFlow : MonoBehaviour
 
     private bool CykleStage()
     {
+        StageCyckleEvent?.Invoke();
         if (currentStageIndex == stages.Count)
             return false;
-
         currentStage = stages[currentStageIndex].I;
         currentStage.onStageFinished.AddListener(OnStageFinished);
         currentStage.StartStage(args);

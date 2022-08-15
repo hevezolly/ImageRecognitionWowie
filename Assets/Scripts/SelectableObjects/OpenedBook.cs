@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class OpenedBook : StandartPictureMovement
 {
@@ -11,10 +12,9 @@ public class OpenedBook : StandartPictureMovement
     private int currentPage = 0;
     private Vector2 selectPosition;
 
+
     [SerializeField]
-    private BookImage correctPicture;
-    [SerializeField]
-    private BookImage incorrectPicture;
+    private BookImage bookImage;
 
     [SerializeField]
     private Transform correctPlaceholder;
@@ -28,6 +28,8 @@ public class OpenedBook : StandartPictureMovement
 
     [SerializeField]
     private TextMeshProUGUI textArea;
+    [SerializeField]
+    private AudioSource play;
 
     private List<List<GameObject>> images = new List<List<GameObject>>();
     private List<string> prompts = new List<string>();
@@ -62,17 +64,14 @@ public class OpenedBook : StandartPictureMovement
     {
         var newPage = new List<GameObject>();
         prompts.Add(page.prompt);
-        foreach (var correctTex in page.correctImages)
+        var leftLen = page.Images.Count / 2;
+        for (var i = 0; i < page.Images.Count; i++)
         {
-            var img = Instantiate(correctPicture, correctPlaceholder);
-            img.SetTexture(correctTex);
-            img.gameObject.SetActive(false);
-            newPage.Add(img.gameObject);
-        }
-        foreach (var incorrect in page.incorrectImages)
-        {
-            var img = Instantiate(incorrectPicture, incorrectPlaceholder);
-            img.SetTexture(incorrect);
+            var placeHolder = correctPlaceholder;
+            if (i >= leftLen)
+                placeHolder = incorrectPlaceholder;
+            var img = Instantiate(bookImage, placeHolder);
+            img.SetTexture(page.Images[i]);
             img.gameObject.SetActive(false);
             newPage.Add(img.gameObject);
         }
@@ -107,6 +106,7 @@ public class OpenedBook : StandartPictureMovement
 
     private void SetPage(int index)
     {
+        play.Play();
         foreach (var i in images[currentPage])
             i.SetActive(false);
         currentPage = index;
@@ -120,8 +120,7 @@ public class OpenedBook : StandartPictureMovement
 
 public class BookPage
 {
-    public List<TextureData> correctImages;
-    public List<TextureData> incorrectImages;
+    public List<TextureData> Images;
     public string prompt;
 }
 
@@ -129,4 +128,12 @@ public class TextureData
 {
     public Texture2D texture;
     public bool useMask;
+    public SpawType type;
+}
+
+public enum SpawType
+{
+    Correct,
+    Incorrect,
+    Nutral
 }

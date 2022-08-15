@@ -88,8 +88,8 @@ public class ImageGenerator : MonoBehaviour
         dummy.PopulateBy(args.request);
         if(purge)
             Destroy(args.imageObject);
-        currentNumberOfPictures.Value += 1;
         NewPictureSpawnedEvent?.Invoke(dummy);
+        currentNumberOfPictures.Value += 1;
     }
 
     public void GenerateBunch(IEnumerable<IImageRequest> request, bool showAnswers = false)

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40aac3a2fd739dd4b99dbff0a108b060, type: 3}
+  m_Name: RedShowOff
+  m_EditorClassIdentifier: 
+  stageFinishEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  currentNumberOfPictures: {fileID: 11400000, guid: 4b3c928e897ae6d419136e64f5ae7a10, type: 2}
+  currentRequirement: {fileID: 11400000, guid: a9c700244871df74eae30f9dbfbadd8a, type: 2}
+  requirement: {fileID: 11400000, guid: 852bb95ef6f4c7d4390b5faf5fdfedc7, type: 2}
+  correctRequests:
+  - target: {fileID: 11400000, guid: 0bbb0bba815a3354aadfbe2d9016e85e, type: 2}
+  - target: {fileID: 11400000, guid: f15130c1fec0b7f4aae2625f76b8b33e, type: 2}
+  - target: {fileID: 11400000, guid: b66dde9a02b2a364991de355f37bfa2b, type: 2}
+  incorrectRequests:
+  - target: {fileID: 11400000, guid: b6440b1627cc1ae49ad2be791d963b10, type: 2}
+  - target: {fileID: 11400000, guid: 376ffd0e137b34e4c98a0089a641ac43, type: 2}
+  - target: {fileID: 11400000, guid: 95b03f8fd6acf94418793f23f8d7abc2, type: 2}
+  minMaxTotalImages: {x: 7, y: 7}
+  correctImages: 3
+  showAnswers: 1

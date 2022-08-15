@@ -12,11 +12,6 @@ public class ImageChecker : MonoBehaviour
     private ScriptableValue<int> incorrectCounter;
 
     [SerializeField]
-    private IndicatorFlash correctIndicator;
-    [SerializeField]
-    private IndicatorFlash incorrectIndicator;
-
-    [SerializeField]
     private Rect checkRect;
 
     [SerializeField]
@@ -48,13 +43,11 @@ public class ImageChecker : MonoBehaviour
     private void OnCorrectPicture()
     {
         correctCounter.Value += 1;
-        correctIndicator.Flash();
     }
 
     private void OnIncorrectPicture()
     {
         incorrectCounter.Value += 1;
-        incorrectIndicator.Flash();
     }
 
     private void RecivePicture(ImageDummy image)

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40aac3a2fd739dd4b99dbff0a108b060, type: 3}
+  m_Name: EyesCheck
+  m_EditorClassIdentifier: 
+  stageFinishEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  currentNumberOfPictures: {fileID: 11400000, guid: 4b3c928e897ae6d419136e64f5ae7a10, type: 2}
+  currentRequirement: {fileID: 11400000, guid: a9c700244871df74eae30f9dbfbadd8a, type: 2}
+  requirement: {fileID: 11400000, guid: c17ff539c8b8dc6469a34761e4763144, type: 2}
+  correctRequests:
+  - target: {fileID: 11400000, guid: 5522dd53ad6086a41a879d90503fe51c, type: 2}
+  - target: {fileID: 11400000, guid: df951a3e2998a9f489ca790483d83318, type: 2}
+  - target: {fileID: 11400000, guid: a2b82f0cd5915254c91bca8940928af6, type: 2}
+  incorrectRequests:
+  - target: {fileID: 11400000, guid: f8a6101c774bfad4c87c6efb1922f8ce, type: 2}
+  - target: {fileID: 11400000, guid: c1cfc2a5a12b6994da30960bfcfd585a, type: 2}
+  - target: {fileID: 11400000, guid: 0e7a67fe1f3f260449b797e4f55838e2, type: 2}
+  minMaxTotalImages: {x: 6, y: 6}
+  correctImages: 3
+  showAnswers: 1
