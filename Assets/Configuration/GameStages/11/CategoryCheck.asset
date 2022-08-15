@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40aac3a2fd739dd4b99dbff0a108b060, type: 3}
+  m_Name: CategoryCheck
+  m_EditorClassIdentifier: 
+  stageFinishEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  currentNumberOfPictures: {fileID: 11400000, guid: 4b3c928e897ae6d419136e64f5ae7a10, type: 2}
+  currentRequirement: {fileID: 11400000, guid: a9c700244871df74eae30f9dbfbadd8a, type: 2}
+  requirement: {fileID: 11400000, guid: 11dd4931270ae51428e99e3a250fdd4a, type: 2}
+  correctRequests: []
+  incorrectRequests:
+  - target: {fileID: 11400000, guid: 7b8f003fab309a7489b350a4c2cf4305, type: 2}
+  minMaxTotalImages: {x: 12, y: 12}
+  correctImages: 9
+  showAnswers: 0

@@ -9,6 +9,8 @@ public class PromptDisplay : MonoBehaviour
     private ScriptableValue<string> prompt;
     [SerializeField]
     private TextMeshProUGUI textDisplay;
+    [SerializeField]
+    private AudioSource sound;
 
     private void OnEnable()
     {
@@ -23,6 +25,10 @@ public class PromptDisplay : MonoBehaviour
 
     private void SetText(string text)
     {
+        if (text == textDisplay.text)
+            return;
+        if (sound != null)
+            sound.Play();
         textDisplay.text = text;
     }
 }

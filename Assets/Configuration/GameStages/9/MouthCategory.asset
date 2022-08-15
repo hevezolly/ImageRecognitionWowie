@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40aac3a2fd739dd4b99dbff0a108b060, type: 3}
+  m_Name: MouthCategory
+  m_EditorClassIdentifier: 
+  stageFinishEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  currentNumberOfPictures: {fileID: 11400000, guid: 4b3c928e897ae6d419136e64f5ae7a10, type: 2}
+  currentRequirement: {fileID: 11400000, guid: a9c700244871df74eae30f9dbfbadd8a, type: 2}
+  requirement: {fileID: 11400000, guid: 3f86fc29e1bfb9c4898ec8792c38d6e2, type: 2}
+  correctRequests:
+  - target: {fileID: 11400000, guid: e30dd31481dcef541a58af32779b829a, type: 2}
+  - target: {fileID: 11400000, guid: 3884284fa00bcf84e9867e8bfc5dc456, type: 2}
+  incorrectRequests:
+  - target: {fileID: 11400000, guid: 26622eca86d8a574ea8138b9428480da, type: 2}
+  minMaxTotalImages: {x: 3, y: 3}
+  correctImages: 2
+  showAnswers: 1

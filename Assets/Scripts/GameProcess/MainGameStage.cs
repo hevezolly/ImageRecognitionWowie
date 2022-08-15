@@ -33,7 +33,7 @@ public class MainGameStage : ScriptableGameStage
 
     public void FalseStart()
     {
-        var totalImages = Random.Range(minMaxTotalImages.x, minMaxTotalImages.y + 1);
+        var totalImages = Random.Range(minMaxTotalImages.x, minMaxTotalImages.y+1);
         var requests = new List<IImageRequest>(totalImages);
         for (var i = 0; i < correctImages; i++)
         {
@@ -55,8 +55,7 @@ public class MainGameStage : ScriptableGameStage
         currentRequirement.Value = requirement;
         var prompt = args.requirementGenerator.GeneratePromptFromRequirement(requirement);
         page = new BookPage();
-        page.correctImages = new List<TextureData>();
-        page.incorrectImages = new List<TextureData>();
+        page.Images = new List<TextureData>();
         page.prompt = prompt;
         args.imageGen.NewPictureSpawnedEvent.AddListener(OnNewPictureSpawned);
         args.imageGen.GenerateBunch(requests.OrderBy(v => Random.value), showAnswers);
@@ -64,23 +63,23 @@ public class MainGameStage : ScriptableGameStage
 
     private void OnNewPictureSpawned(ImageDummy picture)
     {
-        if (!showAnswers)
-            return;
         var data = new TextureData()
         {
             texture = picture.MonsterTexture,
             useMask = picture.hasMask,
         };
-        if (picture.Description.IsFitForRequirement(requirement))
-            page.correctImages.Add(data);
-        else
-            page.incorrectImages.Add(data);
+        var type = SpawType.Incorrect;
+        if (!showAnswers)
+            type = SpawType.Nutral;
+        else if (picture.Description.IsFitForRequirement(requirement))
+            type = SpawType.Correct;
+        data.type = type;
+        page.Images.Add(data);
     }
 
     public void Finish()
     {
-        if (showAnswers)
-            args.book.AddPage(page);
+        args.book.AddPage(page);
         args.imageGen.NewPictureSpawnedEvent.RemoveListener(OnNewPictureSpawned);
         currentNumberOfPictures.ValueChangeEvent.RemoveListener(OnPictureNumberChange);
     }
