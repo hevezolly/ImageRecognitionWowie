@@ -4,7 +4,7 @@ Game for [Wowie gamejam 4](https://itch.io/jam/wowie-jam-4). Entry page is [here
 
 Genre: puzzle
 
-Tecknologies:
+Technologies:
 - Unity 2021.3.5f1
 - URP
 - Shader graph
